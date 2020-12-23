@@ -1,0 +1,17 @@
+{
+  "hosting": {
+    "public": "public",
+    "target": "tm5jkf480v",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "rewrites": [
+      {
+        "source": "**",
+        "function": "renderNext"
+      }
+    ]
+  },
+  "functions": {
+    "source": ".",
+    "runtime": "nodejs12"
+  }
+}

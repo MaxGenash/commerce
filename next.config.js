@@ -1,21 +1,28 @@
+const isProd = process.env.NODE_ENV === 'production';
 
+// const bundleAnalyzer = require('@next/bundle-analyzer')({
+//   enabled: !!process.env.BUNDLE_ANALYZE
+// })
 
-const bundleAnalyzer = require('@next/bundle-analyzer')({
-  enabled: !!process.env.BUNDLE_ANALYZE
-})
-
-module.exports = bundleAnalyzer({
+module.exports =/* bundleAnalyzer(*/{
+  // target: 'serverless',
+  // assetPrefix: isProd ? 'https://renderer-next-spike.web.app' : '',
   images: {
+    // loader: 'cloudinary',
     domains: ['cdn11.bigcommerce.com'],
   },
-  i18n: {
-    locales: ['en-US', 'es'],
-    defaultLocale: 'en-US',
+  distDir: '.next',
+  experimental: {
+    sprFlushToDisk: false,
   },
+  // i18n: {
+  //   locales: ['en-US', 'es'],
+  //   defaultLocale: 'en-US',
+  // },
   rewrites() {
     return [
       {
-        source: '/:locale/checkout',
+        source: '/checkout',
         destination: '/api/bigcommerce/checkout',
       },
       {
@@ -25,7 +32,7 @@ module.exports = bundleAnalyzer({
       // The logout is also an action so this route is not required, but it's also another way
       // you can allow a logout!
       {
-        source: '/:locale/logout',
+        source: '/logout',
         destination: '/api/bigcommerce/customers/logout?redirect_to=/',
       },
       {
@@ -34,11 +41,7 @@ module.exports = bundleAnalyzer({
       },
       // Rewrites for /search
       {
-        source: '/:locale/search',
-        destination: '/search',
-      },
-      {
-        source: '/:locale/search/:path*',
+        source: '/search/:path*',
         destination: '/search',
       },
       {
@@ -57,4 +60,4 @@ module.exports = bundleAnalyzer({
       },
     ]
   },
-});
+}/*)*/;

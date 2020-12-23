@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "renderer-next-spike"
+  },
+  "targets": {
+    "renderer-next-spike": {
+      "hosting": {
+        "tm5jkf480v": [
+          "renderer-next-spike"
+        ]
+      }
+    }
+  }
+}
