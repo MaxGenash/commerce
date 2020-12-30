@@ -1,15 +1,24 @@
-const bundleAnalyzer = require('@next/bundle-analyzer')({
-  enabled: !!process.env.BUNDLE_ANALYZE,
-})
+// const isProd = process.env.NODE_ENV === 'production';
 
-module.exports = bundleAnalyzer({
+// const bundleAnalyzer = require('@next/bundle-analyzer')({
+//   enabled: !!process.env.BUNDLE_ANALYZE
+// })
+
+module.exports =/* bundleAnalyzer(*/{
+  target: 'serverless',
+  assetPrefix: 'https://renderer-next-spike.firebaseapp.com', // isProd ? 'https://d1ellu4e4batq4.cloudfront.net' : '',
   images: {
+    // loader: 'cloudinary',
     domains: ['cdn11.bigcommerce.com'],
   },
-  i18n: {
-    locales: ['en-US', 'es'],
-    defaultLocale: 'en-US',
-  },
+  distDir: '.next',
+  // experimental: {
+  //   sprFlushToDisk: false,
+  // },
+  // i18n: {
+  //   locales: ['en-US', 'es'],
+  //   defaultLocale: 'en-US',
+  // },
   rewrites() {
     return [
       {
@@ -38,4 +47,4 @@ module.exports = bundleAnalyzer({
       },
     ]
   },
-})
+}/*)*/;
